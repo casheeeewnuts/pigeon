@@ -1,7 +1,21 @@
 import React from "react";
+import {AppBar, Card, CardContent, Paper, Toolbar, Typography} from "@material-ui/core";
 
 export const Main: React.VFC = () => {
     return (
-        <div>Hello!</div>
+        <>
+            {/*<AppBar style={{height: '50px'}}></AppBar>*/}
+            <main>
+                <Paper>
+                    <Card>
+                        <CardContent>
+                            <Typography variant='h6'>
+                                Software Design
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Paper>
+            </main>
+        </>
     )
 }
