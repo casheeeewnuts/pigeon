@@ -58,7 +58,7 @@ const mainRenderer: webpack.Configuration = {
             template: './src/assets/index.html',
             minify: false,
             inject: 'body',
-            filename: 'assets/index.html',
+            filename: 'index.html',
             scriptLoading: 'blocking'
         })
     ]

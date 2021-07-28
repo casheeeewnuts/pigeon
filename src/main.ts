@@ -6,5 +6,6 @@ app.whenReady().then(() => {
     maxHeight: 1200
   });
 
-  window.loadFile('')
+  window.loadFile('build/assets/index.html')
+  window.webContents.openDevTools()
 })
