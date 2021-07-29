@@ -12,7 +12,7 @@ app.on('ready', async () => {
   await prepareNext('./renderer')
 
   const mainWindow = new BrowserWindow({
-    width: 800,
+    minWidth: 1200,
     height: 600,
     webPreferences: {
       nodeIntegration: false,
@@ -30,6 +30,7 @@ app.on('ready', async () => {
       })
 
   mainWindow.loadURL(url)
+  mainWindow.webContents.openDevTools()
 })
 
 // Quit the app once all windows are closed

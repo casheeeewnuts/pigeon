@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
+import {AppBar, Typography} from "@material-ui/core";
 
 const IndexPage = () => {
   useEffect(() => {
@@ -21,6 +22,11 @@ const IndexPage = () => {
       <p>
         <Link href="/about">
           <a>About</a>
+        </Link>
+      </p>
+      <p>
+        <Link href="/main">
+          <a>Main</a>
         </Link>
       </p>
     </Layout>
