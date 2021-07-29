@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
-import {AppBar, Typography} from "@material-ui/core";
+import {useLoading} from "../hooks/useLoading";
 
 const IndexPage = () => {
   useEffect(() => {
@@ -15,10 +15,13 @@ const IndexPage = () => {
     global.ipcRenderer.send('message', 'hi from next')
   }
 
+  const [toggleLoading, Loading] = useLoading()
+
   return (
     <Layout title="Home | Next.js + TypeScript + Electron Example">
       <h1>Hello Next.js 👋</h1>
       <button onClick={onSayHiClick}>Say hi to electron</button>
+      <button onClick={toggleLoading}>Load</button>
       <p>
         <Link href="/about">
           <a>About</a>
@@ -29,6 +32,7 @@ const IndexPage = () => {
           <a>Main</a>
         </Link>
       </p>
+      <Loading/>
     </Layout>
   )
 }
