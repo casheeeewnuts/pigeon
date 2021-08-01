@@ -1,40 +1,32 @@
-import { useEffect } from 'react'
-import Link from 'next/link'
+import React from "react";
+import {Container, IconButton} from "@material-ui/core";
+import {Dehaze} from "@material-ui/icons";
 import Layout from '../components/Layout'
+
 import {useLoading} from "../hooks/useLoading";
+import {useSwitchableAside} from "../hooks/useSwitchableAside";
+
 
 const IndexPage = () => {
-  useEffect(() => {
-    // add a listener to 'message' channel
-    global.ipcRenderer.addListener('message', (_event, args) => {
-      alert(args)
-    })
-  }, [])
+    const [toggleLoading, Loading] = useLoading();
+    const [opened, toggleOpened, close, Aside] = useSwitchableAside();
 
-  const onSayHiClick = () => {
-    global.ipcRenderer.send('message', 'hi from next')
-  }
+    return (
+        <Layout>
+            <Aside opened={opened} close={close}/>
+            <div onClick={toggleOpened}>
+                <IconButton>
+                    <Dehaze/>
+                </IconButton>
+            </div>
+            <Container>
+                <div>
 
-  const [toggleLoading, Loading] = useLoading()
-
-  return (
-    <Layout title="Home | Next.js + TypeScript + Electron Example">
-      <h1>Hello Next.js 👋</h1>
-      <button onClick={onSayHiClick}>Say hi to electron</button>
-      <button onClick={toggleLoading}>Load</button>
-      <p>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </p>
-      <p>
-        <Link href="/main">
-          <a>Main</a>
-        </Link>
-      </p>
-      <Loading/>
-    </Layout>
-  )
+                </div>
+            </Container>
+            <Loading/>
+        </Layout>
+    )
 }
 
 export default IndexPage
