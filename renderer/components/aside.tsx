@@ -60,12 +60,12 @@ const Aside: React.VFC<Props> = ({opened = false, close}) => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/">
+                                <Link href="/favorite">
                                     <a>Favorites</a>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/">
+                                <Link href="/reading">
                                     <a>Readings</a>
                                 </Link>
                             </li>
@@ -75,7 +75,7 @@ const Aside: React.VFC<Props> = ({opened = false, close}) => {
                         <p>Collections</p>
                         <ul className={style.nestedNoMarkedList}>
                             <li>
-                                <Link href="/main">
+                                <Link href="/">
                                     <a>Main</a>
                                 </Link>
                             </li>
