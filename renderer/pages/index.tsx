@@ -30,6 +30,7 @@ const IndexPage = () => {
     const [toggleLoading, Loading] = useLoading();
     const [opened, toggleOpened, close, Aside] = useSwitchableAside();
     const classes = useStyles();
+    global.api.hi()
 
     return (
         <Layout>
