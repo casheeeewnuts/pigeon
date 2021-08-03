@@ -1,5 +1,6 @@
 import React from "react";
 import {
+    Box,
     Card, CardHeader,
     CardMedia,
     Container,
@@ -8,10 +9,10 @@ import {
     Grid,
     IconButton,
     makeStyles,
-    Paper,
+    Paper, TextField,
     Theme
 } from "@material-ui/core";
-import {Dehaze, MoreVert} from "@material-ui/icons";
+import {Dehaze, MoreVert, SearchRounded} from "@material-ui/icons";
 import Layout from '../components/Layout'
 
 import {useLoading} from "../hooks/useLoading";
@@ -23,6 +24,13 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             flexGrow: 1,
         },
+        header: {
+            height: 60
+        },
+        textArea: {
+            margin: '0 auto',
+            width: '25%'
+        }
     }),
 );
 
@@ -34,11 +42,24 @@ const IndexPage = () => {
     return (
         <Layout>
             <Aside opened={opened} close={close}/>
-            <div onClick={toggleOpened}>
-                <IconButton>
-                    <Dehaze/>
-                </IconButton>
-            </div>
+            <Box className={classes.header}>
+                <Grid container xs={12}>
+                    <Grid item xs>
+                        <div>
+                            <IconButton onClick={toggleOpened}>
+                                <Dehaze/>
+                            </IconButton>
+                        </div>
+                    </Grid>
+                    <Grid item xs={10} justifyContent='space-around'>
+                        <Grid item className={classes.textArea}>
+                            {/*<SearchRounded/>*/}
+                            <TextField fullWidth={true}/>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs></Grid>
+                </Grid>
+            </Box>
             <Container maxWidth='lg'>
                 <div className={classes.root}>
                     <Grid container spacing={3}>
